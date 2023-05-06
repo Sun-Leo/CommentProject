@@ -1,0 +1,21 @@
+﻿@model Category
+@{
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<br />
+<div>
+
+
+<form method="post">
+    <label>Kategori Adı</label>
+    <input type="text" class="form-control" asp-for="CategoryName" />
+    <br />
+    <button class="btn btn-outline-success">Kategori Ekle</button>
+
+
+</form>
+
+</div>

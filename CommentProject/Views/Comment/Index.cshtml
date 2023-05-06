@@ -1,0 +1,25 @@
+﻿@model Comment
+@{
+    ViewData["Title"] = "MyComments";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container"> 
+
+    <form method="post">
+        <br />
+        <label>Başlık Seçiniz</label>
+        @Html.DropDownListFor(x=>x.TitleID,(List<SelectListItem>)ViewBag.v, new{ @class="form-control"})
+            <br />
+        <label>Kategori Seçiniz</label>
+        @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.ct, new{ @class="form-control"})
+        <br />
+            <label>Yorumunuz</label>
+            <textarea class="form-control" rows="5" asp-for="CommentDetails" ></textarea>
+            <br />
+            <button class="btn btn-outline-primary">Yorum Ekle</button>
+
+
+    </form>
+
+</div>

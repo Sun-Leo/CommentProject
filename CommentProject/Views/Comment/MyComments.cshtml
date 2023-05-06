@@ -1,0 +1,58 @@
+﻿
+@model List<Comment>
+@{
+    ViewData["Title"] = "MyComments";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="tab-content">
+    @foreach (var item in Model)
+    {
+        <div class="timeline timeline-inverse">
+            <div>
+                @if (item.Category.CategoryName == "Dizi")
+                {
+                    
+                    <i class="fas fa-comments bg-warning"></i>
+
+                }
+                else if (item.Category.CategoryName == "Film")
+                {
+                    <i class="fas fa-comments bg-dark"></i>
+                }
+                else if (item.Category.CategoryName == "Yazılım")
+                {
+                    <i class="fas fa-comments bg-danger"></i>
+                }
+                else if(item.Category.CategoryName=="Spor")
+                {
+                    <i class="fas fa-comments bg-primary"></i>
+                }
+                else if(item.Category.CategoryName=="Oyun")
+                {
+                    <i class="fas fa-comments bg-info"></i>
+                }
+                else if (item.Category.CategoryName == "Tiyatro")
+                {
+                    <i class="fas fa-comments bg-gradient"></i>
+                }
+                else if (item.Category.CategoryName == "Teknoloji")
+                {
+                    <i class="fas fa-comments bg-light"></i>
+                }
+                
+                <div class="timeline-item">
+                    <span class="time"><i class="far fa-clock"></i> @(((DateTime)item.CommentDate).ToString("dd-MMM-yyyy"))</span>
+
+                    <h3 class="timeline-header"><a href="#"></a> Başlık: @item.Title.TitleName - Durum: @item.CommentStatus</h3>
+                    <div class="timeline-body">
+                        @item.CommentDetails
+                    </div>
+                </div>
+               
+            </div>
+               
+        </div>
+    }
+</div>
+
